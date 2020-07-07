@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class TLDR {
+public final class TLDR: Codable {
     var id          : Int?
     var value       : String
     init(id: Int?, tldrText: String) {

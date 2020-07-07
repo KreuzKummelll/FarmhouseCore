@@ -8,9 +8,8 @@ import Combine
 import Foundation
 
 
-public final class Product {
-    public var id           : Int
-    public var productID    : UUID?
+public final class Product: Codable {
+    public var id           : Int?
     public var name         : Name
     public var tldr         : TLDR?
     public var description  : Description?
@@ -18,7 +17,7 @@ public final class Product {
     public var unit         : Unit?
     
     init(
-        id: Int,
+        id: Int?,
          productID: UUID,
          name: Name,
          price: Price,
@@ -27,7 +26,6 @@ public final class Product {
          unit: Unit? = nil
     ) {
         self.id = id
-        self.productID = productID
         self.name = name
         self.price = price
         self.tldr = tldr
@@ -36,22 +34,6 @@ public final class Product {
     }
 }
 
-public struct Name {
-    var id                  : String
-    var value               : String
-    var alternativeValues   : [String]
-}
 
-public struct TLDR {
-    var id          : UUID
-    var value       : String?
-}
 
-public struct Description {
-    var id          : UUID
-    var description : String
-}
 
-public struct Price {
-    var value       : String
-}

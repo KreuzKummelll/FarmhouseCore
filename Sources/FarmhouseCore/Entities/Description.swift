@@ -7,7 +7,12 @@
 
 import Foundation
 
-public struct Description {
-    var id          : UUID
-    var description : String
+public public class Description: Codable {
+    var id          : Int?
+    var value       : String
+    
+    init(id: Int?, value: String) {
+        self.id = id
+        self.value = value
+    }
 }

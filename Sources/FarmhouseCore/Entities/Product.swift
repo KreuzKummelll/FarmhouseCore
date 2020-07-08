@@ -14,7 +14,7 @@ public final class Product: Codable {
     public var tldr         : TLDR?
     public var description  : Description?
     public var price        : Price
-    public var unit         : Unit?
+    public var unit         : String?
     
     init(
         id: Int?,
@@ -23,7 +23,7 @@ public final class Product: Codable {
          price: Price,
          tldr: TLDR? = nil,
          description: Description? = nil,
-         unit: Unit? = nil
+         unit: String? = nil
     ) {
         self.id = id
         self.name = name

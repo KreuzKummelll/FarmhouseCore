@@ -7,7 +7,7 @@
 
 import Foundation
 
-public public class Description: Codable {
+public class Description: Codable {
     var id          : Int?
     var value       : String
     

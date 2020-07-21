@@ -1,32 +1,32 @@
 //
-//  File.swift
+//  Product.swift
 //  
 //
 //  Created by Andrew McLane on 05.07.20.
 //
-import Combine
+
 import Foundation
 
 
 public final class Product: Codable {
-    public var id           : Int?
-    public var name         : Name
+    public var id           : UUID?
+    public var productName  : ProductName
     public var tldr         : TLDR?
     public var description  : Description?
     public var price        : Price
     public var unit         : String?
     
     init(
-        id: Int?,
-         productID: UUID,
-         name: Name,
-         price: Price,
-         tldr: TLDR? = nil,
-         description: Description? = nil,
-         unit: String? = nil
+        id: UUID?,
+        productID: UUID,
+        name: ProductName,
+        price: Price,
+        tldr: TLDR?,
+        description: Description?,
+        unit: String?
     ) {
         self.id = id
-        self.name = name
+        self.productName = name
         self.price = price
         self.tldr = tldr
         self.description = description

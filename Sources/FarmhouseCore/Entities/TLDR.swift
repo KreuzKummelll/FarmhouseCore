@@ -8,9 +8,9 @@
 import Foundation
 
 public final class TLDR: Codable {
-    var id          : Int?
+    var id          : UUID?
     var value       : String
-    init(id: Int?, tldrText: String) {
+    init(id: UUID?, tldrText: String) {
         self.id = id
         self.value = tldrText
     }

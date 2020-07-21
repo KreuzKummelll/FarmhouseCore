@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class Name: Codable {
+public final class ProductName: Codable {
     var id                  : Int?
     var value               : String
     var alternativeValues   : [String]

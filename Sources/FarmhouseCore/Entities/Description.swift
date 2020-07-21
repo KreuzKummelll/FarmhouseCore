@@ -8,10 +8,10 @@
 import Foundation
 
 public class Description: Codable {
-    var id          : Int?
+    var id          : UUID?
     var value       : String
     
-    init(id: Int?, value: String) {
+    init(id: UUID?, value: String) {
         self.id = id
         self.value = value
     }

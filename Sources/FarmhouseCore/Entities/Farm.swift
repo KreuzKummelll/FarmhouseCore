@@ -9,19 +9,17 @@
 import Foundation
 
 public final class Farmer: Codable {
-    public var id: Int?
+    public var id: UUID?
     public var name: String
-    public var standLocations: [StandLocation]
+    public var storefronts: [Storefront]
     
     public init (
-        id: Int? = nil,
-        name: String = "Farm or Farmer's Name",
-        standLocations : [StandLocation] = []
+        id: UUID?,
+        name: String,
+        storefronts: [Storefront]
     ) {
         self.id = id
         self.name = name
-        self.standLocations = standLocations
+        self.storefronts = storefronts
     }
-
-   
 }

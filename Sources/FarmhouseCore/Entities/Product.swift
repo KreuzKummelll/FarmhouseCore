@@ -10,6 +10,7 @@ import Foundation
 
 public final class Product: Codable {
     public var id           : UUID?
+    public var farm         : Farm
     public var productName  : ProductName
     public var tldr         : TLDR?
     public var description  : Description?
@@ -18,18 +19,19 @@ public final class Product: Codable {
     
     init(
         id: UUID?,
-        productID: UUID,
+        farmID: Farm,
         name: ProductName,
-        price: Price,
         tldr: TLDR?,
         description: Description?,
+        price: Price,
         unit: String?
     ) {
         self.id = id
+        self.farm = farm
         self.productName = name
-        self.price = price
         self.tldr = tldr
         self.description = description
+        self.price = price
         self.unit = unit
     }
 }

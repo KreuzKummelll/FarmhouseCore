@@ -8,7 +8,7 @@
 
 import Foundation
 
-public final class Farmer: Codable {
+public final class Farm: Codable {
     public var id: UUID?
     public var name: String
     public var storefronts: [Storefront]

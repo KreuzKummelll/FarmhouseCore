@@ -8,11 +8,11 @@
 import Foundation
 
 public final class ProductName: Codable {
-    var id                  : Int?
+    var id                  : UUID?
     var value               : String
     var alternativeValues   : [String]
     
-    init(id: Int?, name: String, alternativeNames: [String] ) {
+    init(id: UUID?, name: String, alternativeNames: [String] ) {
         self.id = id
         self.value = name
         self.alternativeValues = alternativeNames

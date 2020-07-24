@@ -18,3 +18,6 @@ public final class ProductName: Codable {
         self.alternativeValues = alternativeNames
     }
 }
+
+
+extension ProductName

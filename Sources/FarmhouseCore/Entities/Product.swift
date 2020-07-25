@@ -11,7 +11,7 @@ import FluentPostgresDriver
 import Fluent
 import CRUDKit
 
-final class Product: Content, Model {
+public final class Product: Content, Model {
     
     public static let schema = "products"
     

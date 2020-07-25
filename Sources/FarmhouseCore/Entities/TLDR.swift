@@ -24,7 +24,7 @@ public final class TLDR: Content, Model {
     var product: Product
     
     public init() {}
-    init(
+     init(
         id: TLDR.IDValue? = nil,
         value: String,
         product_id: Product.IDValue?
@@ -39,9 +39,6 @@ public final class TLDR: Content, Model {
 
 
 extension TLDR: CRUDModel {
-    public var `public`: Public {
-        Public.init(value: value)
-    }
     public struct Create: Content {
         var value: String
         var product_id: Product.IDValue?
@@ -62,6 +59,8 @@ extension TLDR: CRUDModel {
     public struct Public: Content {
         var value: String
     }
-    
+    public var `public`: Public {
+        Public.init(value: value)
+    }
 }
 

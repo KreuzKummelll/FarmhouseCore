@@ -45,3 +45,29 @@ public final class User : Content, Model {
         return publicUser
     }
 }
+
+extension User: CRUDModel {
+    public struct Create: Content {
+        var name: String
+        var username: String
+        var userType: UserType
+    }
+    public convenience init(from data: Create) throws {
+        self.init(name: data.name, username: data.username, userType: data.userType)
+    }
+    public struct Replace: Content {
+        var name: String
+        var username: String
+        var userType: UserType
+    }
+    public func replace(with data: Replace) throws -> Self {
+        Self.init(name: data.name, username: data.username, userType: data.userType)
+    }
+    public struct Public: Content {
+        var userName: String
+        var userType: UserType
+    }
+    public var `public` : Public {
+        Public.init(userName: self.username, userType: self.userType)
+    }
+}

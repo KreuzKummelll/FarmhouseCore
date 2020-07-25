@@ -30,3 +30,24 @@ public final class Price: Model, Content {
         self.value = price
     }
 }
+extension Price: CRUDModel {
+    public struct Create: Content {
+        var value: String
+    }
+    public convenience init(from data: Create) throws {
+        self.init(price: data.value)
+    }
+    
+    public struct Replace: Content {
+        var value: String
+    }
+    public func replace(with data: Replace) throws -> Self {
+        Self.init(price: data.value)
+    }
+    public struct Public: Content {
+        var value: String
+    }
+    public var `public` : Public {
+        Public.init(value: self.value)
+    }
+}

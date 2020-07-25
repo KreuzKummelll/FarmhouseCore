@@ -36,31 +36,3 @@ public final class TLDR: Content, Model {
         }
     }
 }
-
-
-extension TLDR: CRUDModel {
-    public struct Create: Content {
-        var value: String
-        var product_id: Product.IDValue?
-    }
-    public convenience init(from data: Create) throws {
-        self.init(value: data.value, product_id: data.product_id)
-    }
-    public struct Replace: Content {
-        var value: String
-        var product_id: Product.IDValue?
-    }
-    public func replace(with data: Replace) throws -> Self {
-        Self.init(
-            value: data.value,
-            product_id: data.product_id
-        )
-    }
-    public struct Public: Content {
-        var value: String
-    }
-    public var `public`: Public {
-        Public.init(value: value)
-    }
-}
-

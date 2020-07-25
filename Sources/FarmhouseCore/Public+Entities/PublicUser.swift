@@ -8,10 +8,10 @@
 import Foundation
 
 public final class PublicUser: Codable {
-    var userName: String
-    var userType: UserType
+    public var userName: String
+    public var userType: UserType
     
-    init(userName: String, userType: UserType) {
+    public init(userName: String, userType: UserType) {
         self.userName = userName
         self.userType = userType
     }

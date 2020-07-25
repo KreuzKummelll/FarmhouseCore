@@ -12,61 +12,62 @@ import Fluent
 import CRUDKit
 
 
-
-final class User : Content, Model {
-    static let schema = "users"
+public final class User : Content, Model {
+    public static let schema = "users"
     
     @ID(key: .id)
-    var id: UUID?
+    public var id: UUID?
     
     @Field(key: "name")
-    var name: String
+    public var name: String
     
     @Field(key: "username")
-    var username: String
+    public var username: String
     
     @Enum(key: "user_type")
-    var userType: UserType
+    public var userType: UserType
     
-    init() { }
-    
-    init(id: UUID? = nil,
-         name: String, username: String,
-         userType: UserType) {
+    public init() {}
+    public init(
+        id: User.IDValue? = nil,
+        name: String,
+        username: String,
+        userType: UserType
+    ) {
         self.id = id
         self.name = name
         self.username = username
         self.userType = userType
     }
     
+    public func copyAndConvertToPublicUser() -> PublicUser {
+        let publicUser = PublicUser(userName: self.username, userType: self.userType)
+        return publicUser
+    }
 }
 
 extension User: CRUDModel {
-    struct Create: Content {
+    public struct Create: Content {
         var name: String
         var username: String
         var userType: UserType
     }
-    convenience init(from data: Create) throws {
+    public convenience init(from data: Create) throws {
         self.init(name: data.name, username: data.username, userType: data.userType)
     }
-    struct Replace: Content {
+    public struct Replace: Content {
         var name: String
         var username: String
         var userType: UserType
     }
-    func replace(with data: Replace) throws -> Self {
+    public func replace(with data: Replace) throws -> Self {
         Self.init(name: data.name, username: data.username, userType: data.userType)
     }
+    public struct Public: Content {
+        var userName: String
+        var userType: UserType
+    }
+    public var `public` : Public {
+        Public.init(userName: self.username, userType: self.userType)
+    }
 }
-
-extension User: Authenticatable {
-    
-}
-
-extension User: SessionAuthenticatable {
-    typealias SessionID = UUID
-
-    var sessionID: SessionID { self.id! }
-}
-

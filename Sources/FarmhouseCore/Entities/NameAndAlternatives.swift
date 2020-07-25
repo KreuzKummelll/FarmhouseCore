@@ -20,7 +20,7 @@ public final class NameAndAlternatives: Model, Content {
     @Field(key: "value")
     public var value : String
     
-    @Field(key: "alternativeValues")
+    @Field(key: "alternative_values")
     public var alternativeValues   : [String?]
     
     @Parent(key: "product_id")

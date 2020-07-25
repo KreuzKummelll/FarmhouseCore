@@ -19,7 +19,6 @@ public final class Product: Content, Model {
     @ID(key: .id)
     public var id: UUID?
     
-    
     // MARK: Parent
     @Parent(key:"storefront_id")
     public var storefront: Storefront
@@ -49,7 +48,6 @@ public final class Product: Content, Model {
             self.$storefront.id = storefront
         }
     }
-
 }
 
 extension Product: CRUDModel {
@@ -60,6 +58,7 @@ extension Product: CRUDModel {
     public convenience init(from data: Create) throws {
         self.init(storefront_id: data.storefront_id)
     }
+    
 }
 
 

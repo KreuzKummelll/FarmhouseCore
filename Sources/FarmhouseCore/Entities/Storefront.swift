@@ -25,7 +25,7 @@ public final class Storefront: Model, Content {
     public var farm: Farm
     
     @Children(for: \.$storefront)
-    var products: [Product]
+    public var products: [Product]
     
     @Field(key: "latitude")
     public var latitude: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PublicFarm: Codable {
+public final class PublicFarm: Codable {
     public var name: String
     public var storefronts: [PublicStorefront]
     public var latitude: String?

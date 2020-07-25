@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class PublicProduct: Codable {
+public final class PublicProduct: Codable {
     public var name: PublicNameAndAlternatives
     public var tldr: PublicTLDR?
     public var description: PublicDescription?

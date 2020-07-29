@@ -43,27 +43,29 @@ public final class NameAndAlternatives: Model, Content {
 }
 extension NameAndAlternatives: CRUDModel {
     public struct Create: Content {
-        var value: String
-        var alternativeValues: [String?]
-        var product_id: Product.IDValue?
+       public var value: String
+       public var alternativeValues: [String?]
+       public var product_id: Product.IDValue?
     }
     public convenience init(from data: Create) throws {
         self.init(value: data.value, alternativeValues: data.alternativeValues, product_id: data.product_id)
     }
     public struct Replace: Content {
-        var value: String
-        var alternativeValues: [String?]
-        var product_id: Product.IDValue?
+       public var value: String
+       public var alternativeValues: [String?]
+       public var product_id: Product.IDValue?
     }
     public func replace(with data: Replace) throws -> Self {
         Self.init(value: data.value, alternativeValues: data.alternativeValues, product_id: data.product_id)
     }
     public struct Public: Content {
-        var value: String
-        var alternativeValues: [String?]
+      public var id: UUID?
+      public var value: String
+      public var alternativeValues: [String?]
+      public var productId: Product
     }
     public var `public` : Public {
-        Public.init(value: value, alternativeValues: alternativeValues)
+        Public.init(id: id, value: value, alternativeValues: alternativeValues, productId: product)
     }
 }
 

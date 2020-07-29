@@ -53,29 +53,30 @@ public final class Storefront: Model, Content {
 
 extension Storefront: CRUDModel {
     public struct Create: Content {
-        var name: String
-        var farm_id: Farm.IDValue?
-        var latitude: String
-        var longitude: String
+       public var name: String
+       public var farm_id: Farm.IDValue?
+       public var latitude: String
+       public var longitude: String
     }
     public convenience init(from data: Create) throws {
         self.init(name: data.name, farm_id: data.farm_id, lat: data.latitude, long: data.longitude)
     }
     public struct Replace: Content {
-        var name: String
-        var farm_id: Farm.IDValue?
-        var latitude: String
-        var longitude: String
+       public var name: String
+       public var farm_id: Farm.IDValue?
+       public var latitude: String
+       public var longitude: String
     }
     public func replace(with data: Replace) throws -> Self {
         Self.init(name: data.name, farm_id: data.farm_id, lat: data.latitude, long: data.longitude)
     }
     public struct Public: Content {
-        var name: String
-        var lat: String
-        var long: String
+       public var id: UUID?
+       public var name: String
+       public var lat: String
+       public var long: String
     }
     public var `public` : Public {
-        Public.init(name: self.name ?? "Farm", lat: self.latitude, long: self.longitude)
+        Public.init(id: self.id, name: self.name ?? "Farm", lat: self.latitude, long: self.longitude)
     }
 }

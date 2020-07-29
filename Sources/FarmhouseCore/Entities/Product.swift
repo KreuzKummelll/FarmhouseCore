@@ -53,7 +53,7 @@ public final class Product: Content, Model {
 extension Product: CRUDModel {
    
     public struct Create: Content {
-        var storefront_id: Product.IDValue?
+        public var storefront_id: Product.IDValue?
     }
     public convenience init(from data: Create) throws {
         self.init(storefront_id: data.storefront_id)

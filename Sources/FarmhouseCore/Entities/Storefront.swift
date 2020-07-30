@@ -78,6 +78,6 @@ extension Storefront: CRUDModel {
         public var long: String
     }
     public var `public` : Public {
-        Public.init(id: self.id, name: self.name ?? "Farm", farm: self.farm.id ,lat: self.latitude, long: self.longitude)
+        Public.init(id: self.id, name: self.name ?? "Farm", farm: self.$farm.id ,lat: self.latitude, long: self.longitude)
     }
 }

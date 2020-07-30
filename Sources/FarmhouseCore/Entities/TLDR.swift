@@ -24,7 +24,7 @@ public final class TLDR: Content, Model {
     var product: Product
     
     public init() {}
-     init(
+    init(
         id: TLDR.IDValue? = nil,
         value: String,
         product_id: Product.IDValue?
@@ -58,8 +58,9 @@ extension TLDR: CRUDModel {
     public struct Public: Content {
         public var id: UUID?
         public var value: String
+        public var product: Product.IDValue?
     }
     public var `public`: Public {
-        Public.init(id: self.id, value: self.value)
+        Public.init(id: self.id, value: self.value, product: self.product.id)
     }
 }

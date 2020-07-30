@@ -36,8 +36,8 @@ public final class Farm: Model, Content {
     public init(
         id  : UUID? = nil,
         name: String,
-        lat : String = "0",
-        long: String = "0"
+        lat : String,
+        long: String
     ) {
         self.id = id
         self.name = name
@@ -49,14 +49,11 @@ public final class Farm: Model, Content {
 extension Farm: CRUDModel {
     public struct Create: Content {
         public var name: String
-        public var lat : String?
-        public var long: String?
+        public var lat : String
+        public var long: String
     }
     public convenience init(from data: Create) throws {
-        self.init(
-            name: data.name,
-            lat : data.lat ?? "0",
-            long: data.long ?? "0")
+        self.init(name: data.name, lat : data.lat, long: data.long)
     }
     public struct Replace: Content {
         public var name: String
@@ -64,16 +61,13 @@ extension Farm: CRUDModel {
         public var long: String?
     }
     public func replace(with data: Replace) throws -> Self {
-        Self.init(
-            name: data.name,
-            lat : data.lat ?? latitude!,
-            long: data.long ?? latitude!)
+        Self.init(name: data.name, lat : data.lat, long: data.long)
     }
     public struct Public: Content {
         public var id: UUID?
         public var name: String
-        public var lat: String?
-        public var long: String?
+        public var lat: String
+        public var long: String
     }
     public var `public` : Public {
         Public.init(id: id, name: name, lat: latitude, long: longitude)

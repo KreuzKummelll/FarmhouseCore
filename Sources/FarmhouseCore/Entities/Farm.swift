@@ -26,10 +26,10 @@ public final class Farm: Model, Content {
     public var storefronts: [Storefront]
     
     @Field(key: "longitude")
-    public var longitude: String?
+    public var longitude: String
     
     @Field(key: "latitude")
-    public var latitude: String?
+    public var latitude: String
     
     
     public init () {}
@@ -57,8 +57,8 @@ extension Farm: CRUDModel {
     }
     public struct Replace: Content {
         public var name: String
-        public var lat : String?
-        public var long: String?
+        public var lat : String
+        public var long: String
     }
     public func replace(with data: Replace) throws -> Self {
         Self.init(name: data.name, lat : data.lat, long: data.long)
@@ -70,7 +70,7 @@ extension Farm: CRUDModel {
         public var long: String
     }
     public var `public` : Public {
-        Public.init(id: id, name: name, lat: latitude, long: longitude)
+        Public.init(id: self.id, name: self.name, lat: self.latitude, long: self.longitude)
     }
 }
 

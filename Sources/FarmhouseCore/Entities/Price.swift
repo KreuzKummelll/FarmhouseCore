@@ -47,9 +47,9 @@ extension Price: CRUDModel {
     public struct Public: Content {
         public var value: String
         public var id: UUID?
-        
+        public var productId: Product.IDValue?
     }
     public var `public` : Public {
-        Public.init(value: self.value, id: self.id)
+        Public.init(value: self.value, id: self.id, productId: self.product.id)
     }
 }

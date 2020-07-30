@@ -62,10 +62,10 @@ extension NameAndAlternatives: CRUDModel {
       public var id: UUID?
       public var value: String
       public var alternativeValues: [String?]
-      public var productId: Product
+        public var productId: Product.IDValue?
     }
     public var `public` : Public {
-        Public.init(id: id, value: value, alternativeValues: alternativeValues, productId: product)
+        Public.init(id: id, value: value, alternativeValues: alternativeValues, productId: product.id)
     }
 }
 

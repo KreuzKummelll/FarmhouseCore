@@ -21,7 +21,7 @@ public final class NameAndAlternatives: Model, Content {
     public var value : String
     
     @Field(key: "alternative_values")
-    public var alternativeValues   : [String?]
+    public var alternativeValues   : [String]?
     
     @Parent(key: "product_id")
     var product: Product
@@ -30,7 +30,7 @@ public final class NameAndAlternatives: Model, Content {
     init(
         id: NameAndAlternatives.IDValue? = nil,
         value: String,
-        alternativeValues: [String?] = [nil],
+        alternativeValues: [String]? = nil,
         product_id: Product.IDValue?
     ) {
         self.id = id
@@ -44,7 +44,7 @@ public final class NameAndAlternatives: Model, Content {
 extension NameAndAlternatives: CRUDModel {
     public struct Create: Content {
        public var value: String
-       public var alternativeValues: [String?]
+       public var alternativeValues: [String]?
        public var product_id: Product.IDValue?
     }
     public convenience init(from data: Create) throws {
@@ -52,20 +52,20 @@ extension NameAndAlternatives: CRUDModel {
     }
     public struct Replace: Content {
        public var value: String
-       public var alternativeValues: [String?]
+       public var alternativeValues: [String]?
        public var product_id: Product.IDValue?
     }
     public func replace(with data: Replace) throws -> Self {
-        Self.init(value: data.value, alternativeValues: data.alternativeValues, product_id: data.product_id)
+        Self.init(value: data.value, alternativeValues: data.alternativeValues ?? [], product_id: data.product_id)
     }
     public struct Public: Content {
       public var id: UUID?
       public var value: String
-      public var alternativeValues: [String?]
+      public var alternativeValues: [String]?
         public var productId: Product.IDValue?
     }
     public var `public` : Public {
-        Public.init(id: id, value: value, alternativeValues: alternativeValues, productId: product.id)
+        Public.init(id: self.id, value: self.value, alternativeValues: self.alternativeValues ?? [], productId: self.$product.id)
     }
 }
 

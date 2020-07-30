@@ -50,6 +50,6 @@ extension Price: CRUDModel {
         public var productId: Product.IDValue?
     }
     public var `public` : Public {
-        Public.init(value: self.value, id: self.id, productId: self.product.id)
+        Public.init(value: self.value, id: self.id, productId: self.$product.id)
     }
 }

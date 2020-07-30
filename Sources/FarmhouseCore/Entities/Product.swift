@@ -58,6 +58,11 @@ extension Product: CRUDModel {
     public convenience init(from data: Create) throws {
         self.init(storefront_id: data.storefront_id)
     }
-    
+    public struct Public: Content {
+        public var id: UUID?
+    }
+    public var `public` : Public {
+        Public.init(id: self.id)
+    }
 }
 

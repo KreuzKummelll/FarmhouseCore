@@ -74,10 +74,9 @@ extension Farm: CRUDModel {
         public var name: String
         public var lat: String?
         public var long: String?
-        public var storefront: [Storefront]
     }
     public var `public` : Public {
-        Public.init(id: id, name: name, lat: latitude, long: longitude, storefront: self.storefronts)
+        Public.init(id: id, name: name, lat: latitude, long: longitude)
     }
 }
 

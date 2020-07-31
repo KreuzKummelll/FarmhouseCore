@@ -58,11 +58,15 @@ extension Product: CRUDModel {
     public convenience init(from data: Create) throws {
         self.init(storefront_id: data.storefront_id)
     }
+    public struct Replace: Replace {
+        public var storefrontID: Storefront.IDValue?
+    }
     public struct Public: Content {
         public var id: UUID?
+        public var storefront_id: Storefront.IDValue?
     }
     public var `public` : Public {
-        Public.init(id: self.id)
+        Public.init(id: self.id, storefrontID: self.$storefront.id)
     }
 }
 

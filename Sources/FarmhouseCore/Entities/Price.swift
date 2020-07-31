@@ -42,14 +42,14 @@ extension Price: CRUDModel {
         public var value: String
     }
     public func replace(with data: Replace) throws -> Self {
-        Self.init(price: data.value)
+        Self.init(value: data.value)
     }
     public struct Public: Content {
         public var value: String
         public var id: UUID?
-        public var productId: Product.IDValue?
+        public var product: Product.IDValue?
     }
     public var `public` : Public {
-        Public.init(value: self.value, id: self.id, productId: self.$product.id)
+        Public.init(value: self.value, id: self.id, product: self.$product.id)
     }
 }

@@ -57,10 +57,10 @@ extension Description: CRUDModel {
     public struct Public: Content {
         var id: UUID?
         public var value: String
-        public var productID: Product.IDValue?
+        public var product: Product.IDValue?
     }
     public var `public`: Public {
-        Public.init(value: value, productID: self.product.id)
+        Public.init(value: value, product: self.product.id)
         
     }
 }

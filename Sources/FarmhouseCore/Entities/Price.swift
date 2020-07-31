@@ -25,9 +25,9 @@ public final class Price: Model, Content {
     var product: Product
     
     public init() {}
-    public init(id: UUID? = nil, price: String) {
+    public init(id: UUID? = nil, value: String) {
         self.id = id
-        self.value = price
+        self.value = value
     }
 }
 extension Price: CRUDModel {
@@ -35,7 +35,7 @@ extension Price: CRUDModel {
         public var value: String
     }
     public convenience init(from data: Create) throws {
-        self.init(price: data.value)
+        self.init(value: data.value)
     }
     
     public struct Replace: Content {

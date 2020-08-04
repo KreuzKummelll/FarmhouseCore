@@ -15,7 +15,7 @@ public final class PublicFarm: Codable {
     
     
     public init(
-        id          : UUID
+        id          : UUID,
         name        : String,
         latitude    : String? = nil,
         longitude   : String? = nil

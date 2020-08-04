@@ -39,11 +39,6 @@ public final class User : Content, Model {
         self.username = username
         self.userType = userType
     }
-    
-    public func copyAndConvertToPublicUser() -> PublicUser {
-        let publicUser = PublicUser(userName: self.username, userType: self.userType)
-        return publicUser
-    }
 }
 
 extension User: CRUDModel {

@@ -15,7 +15,7 @@ public final class PublicStorefront: Codable {
     public var longitude: String
     
     public init(
-        id: UUID
+        id: UUID,
         name        : String,
         farm        : UUID,
         latitude    : String,

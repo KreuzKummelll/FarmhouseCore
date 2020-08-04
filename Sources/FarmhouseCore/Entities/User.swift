@@ -64,10 +64,11 @@ extension User: CRUDModel {
         Self.init(name: data.name, username: data.username, userType: data.userType)
     }
     public struct Public: Content {
+        var id: UUID?
         var username: String
         var userType: UserType
     }
     public var `public` : Public {
-        Public.init(username: self.username, userType: self.userType)
+        Public.init(id: self.id, username: self.username, userType: self.userType)
     }
 }

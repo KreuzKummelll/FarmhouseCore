@@ -49,11 +49,11 @@ extension Price: CRUDModel {
         Self.init(value: data.value, product_id: data.product_id)
     }
     public struct Public: Content {
-        public var value: String
         public var id: UUID?
+        public var value: String
         public var product: Product.IDValue?
     }
     public var `public` : Public {
-        Public.init(value: self.value, id: self.id, product: self.$product.id)
+        Public.init(id: self.id, value: self.value, product: self.$product.id)
     }
 }

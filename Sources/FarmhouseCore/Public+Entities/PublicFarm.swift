@@ -8,20 +8,20 @@
 import Foundation
 
 public final class PublicFarm: Codable {
+    public var id: UUID
     public var name: String
-    public var storefronts: [PublicStorefront]
     public var latitude: String?
     public var longitude: String?
     
     
     public init(
+        id          : UUID
         name        : String,
-        storefronts : [PublicStorefront],
         latitude    : String? = nil,
         longitude   : String? = nil
     ) {
+        self.id         = id
         self.name       = name
-        self.storefronts = storefronts
         self.latitude   = latitude
         self.longitude  = longitude
     }

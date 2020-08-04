@@ -9,20 +9,14 @@ import Foundation
 
 
 public final class PublicProduct: Codable {
-    public var name: PublicNameAndAlternatives
-    public var tldr: PublicTLDR?
-    public var description: PublicDescription?
-    public var price : PublicPrice
+    public var id: UUID
+    public var storefront: UUID
+    
     
     public init(
-        name: PublicNameAndAlternatives,
-        tldr: PublicTLDR? = nil,
-        description: PublicDescription? = nil,
-        price: PublicPrice
+        id: UUID, storefront: UUID
     ) {
-        self.name = name
-        self.tldr = tldr
-        self.description = description
-        self.price = price
+        self.id = id
+        self.storefront = storefront
     }
 }

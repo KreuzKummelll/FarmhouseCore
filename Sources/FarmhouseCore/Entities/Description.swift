@@ -60,7 +60,7 @@ extension Description: CRUDModel {
         public var product: Product.IDValue?
     }
     public var `public`: Public {
-        Public.init(value: value, product: self.product.id)
+        Public.init(value: value, product: self.$product.id)
         
     }
 }
